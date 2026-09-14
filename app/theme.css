@@ -1,0 +1,35 @@
+:root {
+    --brand: #0096e6;
+    --header-footer-bg: #ffffff;
+    --meta: #4d4d4d;
+    --primary-text: #000000;
+    --text: #292929;
+    --inside-block: #ebebeb;
+}
+.dark {
+    --brand: #0083CA;
+    --header-footer-bg: #262626;
+    --meta: #9E9E9E;
+    --primary-text: #ffffff;
+    --text: #C2C2C2;
+    --inside-block: #27272A;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-header-footer: var(--header-footer-bg);
+  --color-meta: var(--meta);
+  --color-default-text: var(--text);
+  --color-primary-text: var(--primary-text);
+  --color-inside: var(--inside-block);
+}
+
+/* Component classes */
+p {
+    margin-bottom: 7px;
+}
+.container {
+    max-width: 1170px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
