@@ -1,3 +1,5 @@
+import { routes } from "@shared/config/routes";
+
 interface Link {
   name: string;
   route: string;
@@ -6,11 +8,11 @@ interface Link {
 export const links: Link[] = [
   {
     name: 'Showcase',
-    route: '/'
+    route: routes.home()
   },
   {
     name: 'Market',
-    route: '/market'
+    route: routes.market()
   },
   {
     name: 'Documentation',

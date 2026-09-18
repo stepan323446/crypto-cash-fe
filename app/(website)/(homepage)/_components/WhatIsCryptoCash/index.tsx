@@ -2,7 +2,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@shadcn/components
 import { infoBlocks } from "./blocks.data";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "@shadcn/components/ui/carousel";
-import HeadTitle from "@/components/shared/HeadTitle";
+import HeadTitle from "@shared/ui/HeadTitle";
 
 interface BlockProps {
   title: string;

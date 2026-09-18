@@ -1,6 +1,6 @@
-import { DescribeBlock, DescribeBlockContent, DescribeBlockTitle } from "@/components/shared/DescribeBlock" 
+import { DescribeBlock, DescribeBlockContent, DescribeBlockTitle } from "@shared/ui/DescribeBlock" 
 import ExampleGraph from "./ExampleGraph";
-import { cn } from "@/lib/utils";
+import { cn } from "@shared/lib/utils";
 
 interface Props {
   className?: string;

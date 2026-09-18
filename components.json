@@ -14,9 +14,9 @@
   "rtl": false,
   "aliases": {
     "components": "@shadcn/components",
-    "utils": "@shadcn/lib/utils",
+    "utils": "@shared/lib/utils",
     "ui": "@shadcn/components/ui",
-    "lib": "@shadcn/lib",
+    "lib": "@shared/lib",
     "hooks": "@shadcn/hooks"
   },
   "menuColor": "default",

@@ -19,6 +19,10 @@
       }
     ],
     "paths": {
+      "@widgets/*": ["./components/widgets/*"],
+      "@features/*": ["./components/features/*"],
+      "@entities/*": ["./components/entities/*"],
+      "@shared/*": ["./components/shared/*"],
       "@shadcn/*": ["./components/shadcn/*"],
       "@/*": ["./*"],
     },

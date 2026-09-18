@@ -1,0 +1,1 @@
+export const MIN_COLOR_CHANGE_GAP = 0.05;

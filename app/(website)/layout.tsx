@@ -1,10 +1,11 @@
-import {PrimaryFooter, PrimaryNavbar} from "@/components/widgets"
+import {PrimaryFooter} from "@/components/widgets"
+import { PrimaryNavbar } from "@widgets/PrimaryNavbar";
 
 const Layout = ({ children }: LayoutProps<"/">) => {
   return (
     <>
       <PrimaryNavbar />
-      <div>
+      <div className="min-h-screen">
         {children}
       </div>
       <PrimaryFooter />

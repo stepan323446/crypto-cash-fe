@@ -2,7 +2,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardDescription, CardHeader, CardTitle } from "@shadcn/components/ui/card"
 import cards from "./FeatureCard.data";
-import { cn } from "@/lib/utils";
+import { cn } from "@shared/lib/utils";
 
 interface FeatureCardProps {
   title: string;

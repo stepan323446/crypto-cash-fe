@@ -7,7 +7,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from '@shadcn/components/ui/field';
 import { Switch } from '@shadcn/components/ui/switch';
 import { ReactNode, useState } from 'react';
-import useIsMobile from '@/hooks/use-is-mobile';
+import useIsMobile from '@/components/shared/hooks/use-is-mobile';
 
 interface RowSettingsProps {
   title: string;

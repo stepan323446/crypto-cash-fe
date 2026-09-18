@@ -1,11 +1,11 @@
 import meImage from '@/assets/me.png';
-import { cn } from "@/lib/utils";
+import { cn } from "@shared/lib/utils";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shadcn/components/ui/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socialLinks } from "./social.data";
 import repos from "./repo.data";
-import { SquareIcon } from "@/components/shared";
+import { SquareIcon } from "@/components/shared/ui";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 interface Props {

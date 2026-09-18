@@ -1,4 +1,4 @@
-import { Logo } from "@/components/shared";
+import { Logo } from "@/components/shared/ui";
 import { linkGroups } from "./links.data";
 import Link from "next/link";
 
@@ -7,15 +7,15 @@ const PrimaryFooter = () => {
 
   return (
     <footer className="bg-header-footer pt-9 pb-9 shadow-[0_-2px_2px_0_rgb(0,0,0,0.05)] text-default-text">
-      <div className="container mx-auto flex justify-between"> 
-        <div className="max-w-60 mr-20">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between"> 
+        <div className="md:max-w-60 md:mr-20 mb-10 md:mb-0">
           <Logo 
           className="mb-3 block"
           route="/" />
           <p>Your all-in-one TON wallet with multi-currency support, smart analytics, and seamless transactions.</p>
           <p className="text-sm">© { currentYear }</p>
         </div>
-        <ul className="flex space-x-12">
+        <ul className="flex space-x-12 flex-col sm:flex-row space-y-5">
           {linkGroups.map((group, i) => (
             <li key={i}>
               <div className="text-primary-text font-semibold mb-3">{group.name}</div>

@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react"
 import { ThemeProvider } from "./ThemeProvider"
+import { QueryProvider } from "./QueryProvider"
 
 interface Props {
   children: ReactNode
@@ -15,7 +16,9 @@ const RootProvider = ({ children }: Props) => {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <QueryProvider>
+        {children}
+      </QueryProvider>
     </ThemeProvider>
   )
 }

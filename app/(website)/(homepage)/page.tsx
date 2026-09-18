@@ -1,15 +1,15 @@
-import BusinessCard from "@/components/features/BusinessCard";
+import { BusinessCard } from "@widgets/index";
 import CryptoCurrenciesExample from "./_components/CryptoCurrenciesExample";
 import FeatureCards from "./_components/FeatureCards";
 import Hero from "./_components/Hero";
 import HowCryptoWorks from "./_components/HowCryptoWorks";
 import WhatIsCryptoCash from "./_components/WhatIsCryptoCash";
-import HeadTitle from "@/components/shared/HeadTitle";
+import HeadTitle from "@shared/ui/HeadTitle";
 
 const IndexPage = () => {
   return (
     <>
-      <section className="pt-28 pb-16">
+      <section className="pt-28 pb-16 bg-linear-to-b from-[#0083ca7a] to-transparent">
         <Hero />
       </section>
       <section className="mb-50">

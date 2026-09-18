@@ -5,6 +5,8 @@
     --primary-text: #000000;
     --text: #292929;
     --inside-block: #ebebeb;
+    --rate-down: #DC0000;
+    --rate-up: #00C213;
 }
 .dark {
     --brand: #0083CA;
@@ -22,6 +24,10 @@
   --color-default-text: var(--text);
   --color-primary-text: var(--primary-text);
   --color-inside: var(--inside-block);
+
+  --color-rate-down: var(--rate-down);
+  --color-rate-up: var(--rate-up);
+  --color-rate-same: var(--meta);
 }
 
 /* Component classes */
