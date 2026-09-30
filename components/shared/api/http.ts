@@ -8,6 +8,7 @@ export const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
   timeout: 10_000,
+  paramsSerializer: { indexes: null }
 })
 
 axiosInstance.interceptors.response.use(

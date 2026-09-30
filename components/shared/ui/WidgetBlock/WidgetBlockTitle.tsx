@@ -8,7 +8,7 @@ interface Props {
 
 const WidgetBlockTitle = ({ children, className }: Props) => {
   return (
-    <h2 className={cn("text-xl md:text-2xl font-bold mb-4", className)}>
+    <h2 className={cn("text-xl md:text-2xl font-semibold mb-4", className)}>
       {children}
     </h2>
   )

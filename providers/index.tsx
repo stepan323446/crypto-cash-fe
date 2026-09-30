@@ -3,6 +3,7 @@
 import { ReactNode } from "react"
 import { ThemeProvider } from "./ThemeProvider"
 import { QueryProvider } from "./QueryProvider"
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 interface Props {
   children: ReactNode
@@ -16,9 +17,11 @@ const RootProvider = ({ children }: Props) => {
       enableSystem
       disableTransitionOnChange
     >
-      <QueryProvider>
-        {children}
-      </QueryProvider>
+      <NuqsAdapter>
+        <QueryProvider>
+          {children}
+        </QueryProvider>
+      </NuqsAdapter>
     </ThemeProvider>
   )
 }

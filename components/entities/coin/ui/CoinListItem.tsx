@@ -24,7 +24,7 @@ const CoinListItem = ({ coin, href }: Props) => {
           </div>
           <div className="text-right">
             <div className="mb-1">{ formatPrice(coin.price) }</div>
-            <div><ChangeGapText value={coin.change24h} hasArrow>{formatFloat(coin.change24h)}</ChangeGapText></div>
+            <div><ChangeGapText value={coin.change24h} hasArrow /></div>
           </div>
         </CardContent>
       </Card>

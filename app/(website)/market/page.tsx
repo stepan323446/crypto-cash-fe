@@ -1,13 +1,32 @@
+import { coinKeys } from "@entities/coin/api/queryKeys";
+import { getCoins } from "@entities/coin/api/requests";
 import { buttonVariants } from "@shadcn/components/ui/button";
+import { getQueryClient } from "@shared/api/getQueryClient";
 import { cn } from "@shared/lib/utils";
 import { HeadBlock, HeadBlockContent, HeadBlockTitle } from "@shared/ui/HeaderBlock";
 import { WidgetBlock, WidgetBlockTitle } from "@shared/ui/WidgetBlock";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import CoinSmallList from "@widgets/CoinSmallList";
+import { CoinTable, coinTableParamsCache} from "@widgets/CoinTable";
 import MarketHeatmap from "@widgets/MarketHeatmap";
 import { PrimaryNavbarSpacing } from "@widgets/PrimaryNavbar";
+import type { SearchParams } from 'nuqs/server'
 import Link from "next/link";
 
-const MarketPage = () => {
+interface Props {
+  searchParams: SearchParams
+}
+
+const MarketPage = async ({ searchParams }: Props) => {
+  const queryClient = getQueryClient();
+
+  const params = await coinTableParamsCache.parse(searchParams);
+
+  await queryClient.query({
+    queryKey: coinKeys.list(params),
+    queryFn: () => getCoins(params),
+  }).catch(() => {})
+
   return (
     <div>
       <PrimaryNavbarSpacing className="mb-12" />
@@ -24,8 +43,8 @@ const MarketPage = () => {
         </HeadBlock>
       </div>
 
-      <section className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <section className="container mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           <WidgetBlock>
             <WidgetBlockTitle>Top Gainers</WidgetBlockTitle>
             <CoinSmallList sort="-change_24h" />
@@ -39,6 +58,9 @@ const MarketPage = () => {
             <MarketHeatmap />
           </WidgetBlock>
         </div>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <CoinTable />
+        </HydrationBoundary>
       </section>
     </div>
   )

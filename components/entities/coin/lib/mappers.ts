@@ -1,4 +1,5 @@
-import { Coin, CoinDto } from "../model/types";
+import { CoinDto, NetworkDto } from "../api/types";
+import { Coin, Network } from "../model/types";
 
 export function mapCoinDtoToCoin(dto: CoinDto): Coin {
   return {
@@ -11,5 +12,16 @@ export function mapCoinDtoToCoin(dto: CoinDto): Coin {
     change24h: dto.change_24h,
     marketCap: Number(dto.market_cap),
     tradingVol24h: Number(dto.trading_vol_24h),
+  }
+}
+
+export function mapNetworkDtoToNetwork(dto: NetworkDto): Network {
+  return {
+    id: dto.id,
+    name: dto.name,
+    icon: dto.icon,
+    type: dto.type,
+    nativeAsset: dto.native_asset,
+    explorerUrl: dto.explorer_url
   }
 }

@@ -7,3 +7,8 @@ export const coinKeys = {
   details: () => [...coinKeys.all, 'detail'] as const,
   detail: (slug: string) => [...coinKeys.details(), slug] as const,
 }
+
+export const taxKeys = {
+  categories: ['categories'] as const,
+  networks: ['networks'] as const
+}

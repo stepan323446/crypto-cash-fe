@@ -2,6 +2,7 @@
     --brand: #0096e6;
     --header-footer-bg: #ffffff;
     --meta: #4d4d4d;
+    --card-hover: lab(93.05% 0 -0.01);
     --primary-text: #000000;
     --text: #292929;
     --inside-block: #ebebeb;
@@ -10,7 +11,8 @@
 }
 .dark {
     --brand: #0083CA;
-    --header-footer-bg: #262626;
+    --header-footer-bg: #232323;
+    --card-hover: lab(12.25% 0 0);
     --meta: #9E9E9E;
     --primary-text: #ffffff;
     --text: #C2C2C2;
@@ -24,10 +26,13 @@
   --color-default-text: var(--text);
   --color-primary-text: var(--primary-text);
   --color-inside: var(--inside-block);
+  --color-secondary: var(--secondary);
 
   --color-rate-down: var(--rate-down);
   --color-rate-up: var(--rate-up);
   --color-rate-same: var(--meta);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
 }
 
 /* Component classes */

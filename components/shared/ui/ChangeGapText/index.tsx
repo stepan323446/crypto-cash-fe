@@ -1,18 +1,18 @@
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MIN_COLOR_CHANGE_GAP } from "@shared/const/crypto";
+import { formatFloat } from "@shared/lib/formatters";
 import { cn } from "@shared/lib/utils";
-import { ReactNode, useMemo } from "react";
+import { useMemo } from "react";
 
 interface Props {
   value: number
-  children?: ReactNode
   className?: string
   hasArrow?: boolean
   hasPersentage?: boolean
 }
 
-const ChangeGapText = ({ value, children, className, hasArrow = false, hasPersentage = true }: Props) => {
+const ChangeGapText = ({ value, className, hasArrow = false, hasPersentage = true }: Props) => {
   const colorClass = useMemo(() => {
     if (value > MIN_COLOR_CHANGE_GAP)
       return 'text-rate-up';
@@ -40,7 +40,7 @@ const ChangeGapText = ({ value, children, className, hasArrow = false, hasPersen
 
   return (
     <span className={cn(colorClass, className)}>
-      { iconArrow && <FontAwesomeIcon icon={iconArrow} /> }{ children } { hasPersentage && '%' }
+      { iconArrow && <FontAwesomeIcon icon={iconArrow} /> }{ formatFloat(value) } { hasPersentage && '%' }
     </span>
   )
 }
