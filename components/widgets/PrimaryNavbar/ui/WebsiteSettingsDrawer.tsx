@@ -8,17 +8,19 @@ import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from '@
 import { Switch } from '@shadcn/components/ui/switch';
 import { ReactNode, useState } from 'react';
 import useIsMobile from '@/components/shared/hooks/use-is-mobile';
+import SelectFiatCurrency from "@features/SelectFiatCurrency";
 
 interface RowSettingsProps {
   title: string;
   description: string;
   htmlFor: string;
   children: ReactNode
+  orientation?: 'horizontal'|'vertical'
 }
-const RowSettings = ({ title, description, htmlFor, children }: RowSettingsProps) => {
+const RowSettings = ({ title, description, htmlFor, children, orientation = 'horizontal' }: RowSettingsProps) => {
   return (
     <FieldLabel htmlFor={htmlFor}>
-      <Field orientation="horizontal">
+      <Field orientation={orientation}>
         <FieldContent>
           <FieldTitle>{title}</FieldTitle>
           <FieldDescription>
@@ -52,7 +54,7 @@ const WebsiteSettingsDrawer = () => {
           <DrawerTitle>Website Settings</DrawerTitle>
           <DrawerDescription>Customize your app preferences</DrawerDescription>
         </DrawerHeader>
-        <div className='p-4'>
+        <div className='p-4 space-y-3'>
           <RowSettings 
             title='Dark mode'
             description='Switch between light and dark appearance.'
@@ -62,6 +64,15 @@ const WebsiteSettingsDrawer = () => {
               checked={isDark}
               onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
               />
+          </RowSettings>
+          <RowSettings 
+            title='Fiat Currency'
+            description='Select your preferable fiat to display prices.'
+            orientation="vertical"
+            htmlFor='fiat-currencies'>
+            <div>
+              <SelectFiatCurrency />
+            </div>
           </RowSettings>
         </div>
         <DrawerFooter>

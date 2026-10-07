@@ -3,9 +3,9 @@
 import { createColumnHelper } from "@tanstack/react-table"
 
 import { type DataTableFeatures } from "@shared/ui/DataTable/data-table.features"
-import { CoinIcon, type Coin } from "@entities/coin"
+import { CoinIcon, FiatPrice, type Coin } from "@entities/coin"
 import { ChangeGapText } from "@shared/ui"
-import { formatCompactNumber, formatPrice } from "@shared/lib/formatters"
+import { formatPrice } from "@shared/lib/formatters"
 import Link from "next/link"
 import { routes } from "@shared/config/routes"
 
@@ -36,7 +36,7 @@ export const columns = columnHelper.columns([
     cell: (info) => (
       <div>
         <div>{formatPrice(info.getValue(), '')}</div>
-        <div className="text-meta text-xs">{formatPrice(info.getValue())}</div>
+        <div className="text-meta text-xs"><FiatPrice usdPrice={info.getValue()} /></div>
       </div>
     ),
     enableSorting: true
@@ -54,14 +54,14 @@ export const columns = columnHelper.columns([
     id: "market_cap",
     header: "Market Cap",
     meta: { className: 'hidden sm:table-cell w-[160px]' },
-    cell: (info) => formatCompactNumber(info.getValue()),
+    cell: (info) => <FiatPrice usdPrice={info.getValue()} compact={true} />,
     enableSorting: true
   }),
   columnHelper.accessor("tradingVol24h", {
     id: "trading_vol_24h",
     header: "24h Volume",
     meta: { className: 'hidden sm:table-cell w-[160px]' },
-    cell: (info) => formatCompactNumber(info.getValue()),
+    cell: (info) => <FiatPrice usdPrice={info.getValue()} compact={true} />,
     enableSorting: true
   }),
 ])

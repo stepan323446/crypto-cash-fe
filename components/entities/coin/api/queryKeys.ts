@@ -12,3 +12,6 @@ export const taxKeys = {
   categories: ['categories'] as const,
   networks: ['networks'] as const
 }
+export const fiatKeys = {
+  all: ['fiat'] as const,
+}

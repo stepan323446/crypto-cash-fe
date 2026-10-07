@@ -1,6 +1,6 @@
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { getCategories, getCoin, getCoins, GetCoinsParams, getNetworks } from "./requests";
-import { coinKeys, taxKeys } from "./queryKeys";
+import { getCategories, getCoin, getCoins, GetCoinsParams, getFiatCurrencies, getNetworks } from "./requests";
+import { coinKeys, fiatKeys, taxKeys } from "./queryKeys";
 
 export function useCoinsQuery(params: GetCoinsParams = {}) {
   return useQuery({
@@ -30,5 +30,11 @@ export function useCategories() {
   return useQuery({
     queryKey: taxKeys.categories,
     queryFn: () => getCategories()
+  });
+}
+export function useFiatCurrencies() {
+  return useQuery({
+    queryKey: fiatKeys.all,
+    queryFn: () => getFiatCurrencies()
   });
 }

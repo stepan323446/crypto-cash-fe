@@ -1,9 +1,9 @@
 import { axiosInstance } from "@shared/api/http";
-import { Coin, CoinsPage, Network } from "../model/types";
-import { CategoryDto, CoinDto, CoinsPageDto, NetworkDto } from "./types";
-import { coinEndpoints } from "./endpoints";
+import { CoinDetail, CoinsPage, Network } from "../model/types";
+import { CategoryDto, CoinDetailDto, CoinsPageDto, FiatDto, NetworkDto } from "./types";
+import { coinEndpoints, fiatEndpoints } from "./endpoints";
 import { mapPadinationDtoToPagination } from "@shared/api/mappers";
-import { mapCoinDtoToCoin, mapNetworkDtoToNetwork } from "../lib/mappers";
+import { mapCoinDetailDtoToCoinDetail, mapCoinDtoToCoin, mapNetworkDtoToNetwork } from "../lib/mappers";
 
 export interface GetCoinsParams {
   page?: number;
@@ -27,10 +27,10 @@ export async function getCoins(params: GetCoinsParams = {}): Promise<CoinsPage> 
     results: coins
   };
 }
-export async function getCoin(slug: string): Promise<Coin> {
-  const dto = await axiosInstance.get<CoinDto>(coinEndpoints.detail(slug));
+export async function getCoin(slug: string): Promise<CoinDetail> {
+  const dto = await axiosInstance.get<CoinDetailDto>(coinEndpoints.detail(slug));
 
-  return mapCoinDtoToCoin(dto.data);
+  return mapCoinDetailDtoToCoinDetail(dto.data);
 }
 
 export async function getCategories(): Promise<CategoryDto[]> {
@@ -43,4 +43,9 @@ export async function getNetworks(): Promise<Network[]> {
   const dto = await axiosInstance.get<NetworkDto[]>(coinEndpoints.networks);
 
   return dto.data.map(netDto => mapNetworkDtoToNetwork(netDto));
+}
+export async function getFiatCurrencies(): Promise<FiatDto[]> {
+  const dto = await axiosInstance.get<FiatDto[]>(fiatEndpoints.list);
+
+  return dto.data;
 }

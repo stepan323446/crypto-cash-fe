@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Coin } from "../model/types";
 import { Card, CardContent } from "@shadcn/components/ui/card";
 import CoinIcon from "./CoinIcon";
-import { formatFloat, formatPrice } from "@shared/lib/formatters";
 import { ChangeGapText } from "@shared/ui";
 import { Skeleton } from "@shadcn/components/ui/skeleton";
+import FiatPrice from "./FiatPrice";
 
 interface Props {
   coin?: Coin;
@@ -23,7 +23,7 @@ const CoinListItem = ({ coin, href }: Props) => {
             <div className="font-semibold">{ coin.name }</div>
           </div>
           <div className="text-right">
-            <div className="mb-1">{ formatPrice(coin.price) }</div>
+            <div className="mb-1"><FiatPrice usdPrice={coin.price} /></div>
             <div><ChangeGapText value={coin.change24h} hasArrow /></div>
           </div>
         </CardContent>
